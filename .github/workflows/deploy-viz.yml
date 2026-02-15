@@ -37,7 +37,9 @@ jobs:
       - name: Copy data for build
         run: |
           mkdir -p packages/viz/public/data
-          cp -r data/* packages/viz/public/data/
+          if [ -d data ] && ls data/ >/dev/null 2>&1; then
+            cp -r data/* packages/viz/public/data/
+          fi
 
       - name: Build viz
         run: pnpm build:viz

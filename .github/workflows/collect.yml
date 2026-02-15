@@ -13,13 +13,13 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        city: [vienna, paris]
     steps:
       - uses: actions/checkout@v4
 
@@ -34,19 +34,28 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Collect ${{ matrix.city }}
+      - name: Collect vienna
+        if: ${{ !inputs.city || inputs.city == 'vienna' }}
         env:
           MOLTNET_CLIENT_ID: ${{ secrets.MOLTNET_CLIENT_ID }}
           MOLTNET_CLIENT_SECRET: ${{ secrets.MOLTNET_CLIENT_SECRET }}
           ORY_PROJECT_URL: ${{ secrets.ORY_PROJECT_URL }}
           MOLTNET_API_URL: ${{ secrets.MOLTNET_API_URL }}
-        run: pnpm collect:${{ matrix.city }}
+        run: pnpm collect:vienna
+
+      - name: Collect paris
+        if: ${{ !inputs.city || inputs.city == 'paris' }}
+        env:
+          MOLTNET_CLIENT_ID: ${{ secrets.MOLTNET_CLIENT_ID }}
+          MOLTNET_CLIENT_SECRET: ${{ secrets.MOLTNET_CLIENT_SECRET }}
+          ORY_PROJECT_URL: ${{ secrets.ORY_PROJECT_URL }}
+          MOLTNET_API_URL: ${{ secrets.MOLTNET_API_URL }}
+        run: pnpm collect:paris
 
       - name: Commit data
         run: |
           git config user.name "breath-agent[bot]"
           git config user.email "breath-agent[bot]@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "data(${{ matrix.city }}): snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git pull --rebase
+          git diff --staged --quiet || git commit -m "data: snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
