@@ -26,10 +26,11 @@ export async function getAccessToken(): Promise<string> {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
     },
     body: new URLSearchParams({
       grant_type: 'client_credentials',
+      client_id: clientId,
+      client_secret: clientSecret,
       scope: 'openid',
     }),
   });

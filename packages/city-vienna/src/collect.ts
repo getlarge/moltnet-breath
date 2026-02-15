@@ -30,11 +30,15 @@ console.log(
 );
 
 if (process.env.MOLTNET_CLIENT_ID) {
-  const dataFile = await loadExisting(rootDir, vienna.id);
-  if (dataFile) {
-    const entry = formatSnapshotAsDiary(dataFile, vienna.name);
-    const result = await publishDiary(entry);
-    console.log(`  Diary published: ${result.id}`);
+  try {
+    const dataFile = await loadExisting(rootDir, vienna.id);
+    if (dataFile) {
+      const entry = formatSnapshotAsDiary(dataFile, vienna.name);
+      const result = await publishDiary(entry);
+      console.log(`  Diary published: ${result.id}`);
+    }
+  } catch (err) {
+    console.error(`  Diary: failed — ${err instanceof Error ? err.message : err}`);
   }
 } else {
   console.log('  Diary: skipped (MOLTNET_CLIENT_ID not set)');
