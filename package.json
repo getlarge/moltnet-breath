@@ -8,6 +8,8 @@
     "test": "pnpm -r run test",
     "collect": "pnpm -r --filter './packages/city-*' run collect",
     "collect:vienna": "pnpm --filter @moltnet-breath/city-vienna run collect",
-    "collect:paris": "pnpm --filter @moltnet-breath/city-paris run collect"
+    "collect:paris": "pnpm --filter @moltnet-breath/city-paris run collect",
+    "dev:viz": "pnpm --filter @moltnet-breath/viz run dev",
+    "build:viz": "pnpm --filter @moltnet-breath/viz run build"
   }
 }
