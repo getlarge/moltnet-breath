@@ -1,27 +1,13 @@
 {
-  "name": "moltnet-vienna-breath",
-  "version": "0.1.0",
+  "name": "moltnet-breath",
   "private": true,
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": {
-    "fetch:air": "node --import tsx src/fetch-air.ts",
-    "fetch:weather": "node --import tsx src/fetch-weather.ts",
-    "fetch:river": "node --import tsx src/fetch-river.ts",
-    "fetch:report": "node --import tsx src/fetch-vienna-report.ts",
-    "fetch:all": "node --import tsx src/fetch-all.ts",
-    "publish:diary": "node --import tsx src/publish-diary.ts",
-    "build:viz": "vite build",
-    "dev:viz": "vite",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run"
-  },
-  "dependencies": {
-    "tsx": "^4.7.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.7.0",
-    "@types/node": "^22.0.0",
-    "vitest": "^3.0.0"
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "collect": "pnpm -r --filter './packages/city-*' run collect",
+    "collect:vienna": "pnpm --filter @moltnet-breath/city-vienna run collect",
+    "collect:paris": "pnpm --filter @moltnet-breath/city-paris run collect"
   }
 }
