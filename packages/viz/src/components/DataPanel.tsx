@@ -5,7 +5,7 @@ interface Props {
   cityName: string;
 }
 
-export function DataPanel({ snapshot, cityName }: Props) {
+export function DataPanel({ snapshot }: Props) {
   const { air, weather, river } = snapshot;
   const ts = new Date(snapshot.timestamp);
 
