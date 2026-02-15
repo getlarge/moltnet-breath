@@ -1,4 +1,10 @@
-import { fetchAll, saveSnapshot } from '@moltnet-breath/core';
+import {
+  fetchAll,
+  saveSnapshot,
+  loadExisting,
+  formatSnapshotAsDiary,
+  publishDiary,
+} from '@moltnet-breath/core';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
 import { vienna } from './config.js';
@@ -22,3 +28,14 @@ console.log(
 console.log(
   `  Local: ${snapshot.local ? 'available' : 'unavailable'}`,
 );
+
+if (process.env.MOLTNET_CLIENT_ID) {
+  const dataFile = await loadExisting(rootDir, vienna.id);
+  if (dataFile) {
+    const entry = formatSnapshotAsDiary(dataFile, vienna.name);
+    const result = await publishDiary(entry);
+    console.log(`  Diary published: ${result.id}`);
+  }
+} else {
+  console.log('  Diary: skipped (MOLTNET_CLIENT_ID not set)');
+}
