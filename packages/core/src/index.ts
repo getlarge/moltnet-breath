@@ -15,3 +15,5 @@ export { loadExisting, saveSnapshot } from './storage.js';
 export { registry, cityDataUrl } from './registry.js';
 export type { CityEntry, Registry } from './registry.js';
 export { getAccessToken } from './auth.js';
+export { formatSnapshotAsDiary } from './format-diary.js';
+export type { DiaryContent } from './format-diary.js';
