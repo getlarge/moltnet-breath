@@ -1,4 +1,4 @@
-import type { CitySnapshot } from '@moltnet-breath/core';
+import type { CitySnapshot } from '@moltnet-breath/core/browser';
 
 interface Props {
   snapshot: CitySnapshot;

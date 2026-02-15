@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import type { DataFile, CityEntry } from '@moltnet-breath/core';
-import { registry } from '@moltnet-breath/core';
+import type { DataFile, CityEntry } from '@moltnet-breath/core/browser';
+import { registry } from '@moltnet-breath/core/browser';
 
 const REPO_OWNER = 'getlarge';
 const REPO_NAME = 'moltnet-breath';
