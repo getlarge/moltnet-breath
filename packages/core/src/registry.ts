@@ -1,5 +1,3 @@
-import type { CitySnapshot, DataFile } from './types.js';
-
 export interface CityEntry {
   id: string;
   name: string;
