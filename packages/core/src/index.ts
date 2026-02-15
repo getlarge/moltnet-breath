@@ -17,3 +17,4 @@ export type { CityEntry, Registry } from './registry.js';
 export { getAccessToken } from './auth.js';
 export { formatSnapshotAsDiary } from './format-diary.js';
 export type { DiaryContent } from './format-diary.js';
+export { publishDiary } from './publish-diary.js';
