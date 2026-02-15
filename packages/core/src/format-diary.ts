@@ -7,99 +7,143 @@ export interface DiaryContent {
 }
 
 const WEATHER_CODES: Record<number, string> = {
-  0: 'clear sky',
-  1: 'mainly clear',
-  2: 'partly cloudy',
-  3: 'overcast',
-  45: 'fog',
-  48: 'depositing rime fog',
-  51: 'light drizzle',
-  53: 'moderate drizzle',
-  55: 'dense drizzle',
-  61: 'slight rain',
-  63: 'moderate rain',
-  65: 'heavy rain',
-  71: 'slight snow',
-  73: 'moderate snow',
-  75: 'heavy snow',
-  80: 'slight rain showers',
-  81: 'moderate rain showers',
-  85: 'slight snow showers',
-  95: 'thunderstorm',
+  0: '☀',
+  1: '🌤',
+  2: '⛅',
+  3: '☁',
+  45: '🌫',
+  48: '🌫',
+  51: '🌦',
+  53: '🌧',
+  55: '🌧',
+  61: '🌧',
+  63: '🌧',
+  65: '⛈',
+  71: '🌨',
+  73: '🌨',
+  75: '❄',
+  80: '🌦',
+  81: '🌧',
+  85: '🌨',
+  95: '⛈',
 };
 
-function describePM25(val: number): string {
-  if (val <= 5) return 'excellent';
-  if (val <= 10) return 'good';
-  if (val <= 25) return 'moderate';
-  if (val <= 50) return 'poor';
-  return 'hazardous';
+function aqiBar(pm25: number): string {
+  // 0-50 scale mapped to 20-char bar
+  const filled = Math.min(20, Math.round((pm25 / 50) * 20));
+  const level =
+    pm25 <= 5
+      ? '░'
+      : pm25 <= 10
+        ? '▒'
+        : pm25 <= 25
+          ? '▓'
+          : '█';
+  return level.repeat(filled) + '·'.repeat(20 - filled);
 }
 
-function windDirection(deg: number): string {
-  const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-  return dirs[Math.round(deg / 45) % 8];
+function tempScale(c: number): string {
+  // -10 to 40 range → 20-char spark
+  const norm = Math.min(20, Math.max(0, Math.round(((c + 10) / 50) * 20)));
+  return '─'.repeat(norm) + '◆' + '─'.repeat(20 - norm);
 }
 
-function trendDescription(current: number, previous: number): string {
-  const diff = current - previous;
-  const pct =
-    previous > 0 ? Math.abs(diff / previous) * 100 : 0;
-  if (pct < 5) return 'stable';
-  return diff > 0
-    ? `increasing (+${pct.toFixed(0)}%)`
-    : `decreasing (-${pct.toFixed(0)}%)`;
+function windArrow(deg: number): string {
+  const arrows = ['↓', '↙', '←', '↖', '↑', '↗', '→', '↘'];
+  return arrows[Math.round(deg / 45) % 8];
 }
 
+function riverBar(m3s: number, max: number): string {
+  const filled = Math.min(20, Math.round((m3s / max) * 20));
+  return '~'.repeat(filled) + ' '.repeat(20 - filled);
+}
+
+function trendArrow(current: number, previous: number): string {
+  const pct = previous > 0 ? ((current - previous) / previous) * 100 : 0;
+  if (Math.abs(pct) < 5) return '→';
+  return pct > 0 ? '↑' : '↓';
+}
+
+function cityBlock(name: string, data: DataFile): string {
+  const { latest, history } = data;
+  const { air, weather, river } = latest;
+  const wx = WEATHER_CODES[weather.weather_code] ?? '?';
+  const prev = history.length > 0 ? history[0] : null;
+
+  const pmTrend = prev ? ` ${trendArrow(air.pm2_5, prev.air.pm2_5)}` : '';
+  const tempTrend = prev
+    ? ` ${trendArrow(weather.temperature_c, prev.weather.temperature_c)}`
+    : '';
+
+  let block = '';
+  block += `┌─── ${name.toUpperCase()} ${'─'.repeat(Math.max(0, 28 - name.length))}┐\n`;
+  block += `│ ${wx} ${weather.temperature_c.toFixed(1)}°C${tempTrend}  ${weather.humidity_pct}% rh  ${weather.pressure_hpa} hPa │\n`;
+  block += `│   wind ${windArrow(weather.wind_direction_deg)} ${weather.wind_speed_kmh.toFixed(0)} km/h                      │\n`;
+  block += `│                                    │\n`;
+  block += `│ PM2.5 [${aqiBar(air.pm2_5)}] ${air.pm2_5.toFixed(1).padStart(5)}${pmTrend} │\n`;
+  block += `│ PM10  [${aqiBar(air.pm10)}] ${air.pm10.toFixed(1).padStart(5)}  │\n`;
+  block += `│ temp  [${tempScale(weather.temperature_c)}]        │\n`;
+
+  if (river) {
+    const maxDischarge = Math.max(
+      river.discharge_m3s,
+      ...(history.filter((h) => h.river).map((h) => h.river!.discharge_m3s)),
+      1,
+    );
+    block += `│ river [${riverBar(river.discharge_m3s, maxDischarge)}] ${river.discharge_m3s.toFixed(0).padStart(5)} │\n`;
+  }
+
+  block += `└────────────────────────────────────┘`;
+  return block;
+}
+
+export function formatDailySummary(
+  cities: { name: string; data: DataFile }[],
+): DiaryContent {
+  const now = new Date();
+  const dateStr = now.toISOString().slice(0, 10);
+
+  let content = '';
+  content += '```\n';
+  content += `╔══════════════════════════════════════╗\n`;
+  content += `║   B R E A T H   ·   ${dateStr}    ║\n`;
+  content += `╚══════════════════════════════════════╝\n`;
+  content += '\n';
+
+  for (const city of cities) {
+    content += cityBlock(city.name, city.data);
+    content += '\n\n';
+  }
+
+  // comparative line
+  if (cities.length > 1) {
+    const temps = cities.map((c) => c.data.latest.weather.temperature_c);
+    const pms = cities.map((c) => c.data.latest.air.pm2_5);
+    const spread = Math.max(...temps) - Math.min(...temps);
+    const cleanest = cities[pms.indexOf(Math.min(...pms))].name;
+
+    content += `── comparison ──────────────────────────\n`;
+    content += `  temp spread: ${spread.toFixed(1)}°C\n`;
+    content += `  cleanest air: ${cleanest}\n`;
+  }
+
+  content += '```';
+
+  const title = `Breath · ${dateStr}`;
+  const tags = [
+    'daily-summary',
+    'environment',
+    'air-quality',
+    ...cities.map((c) => c.data.latest.cityId),
+  ];
+
+  return { title, content, tags };
+}
+
+/** @deprecated Use formatDailySummary instead */
 export function formatSnapshotAsDiary(
   data: DataFile,
   cityName: string,
 ): DiaryContent {
-  const { latest, history } = data;
-  const { air, weather, river } = latest;
-  const cityId = latest.cityId;
-  const ts = new Date(latest.timestamp);
-  const timeStr = ts.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
-
-  const weatherDesc =
-    WEATHER_CODES[weather.weather_code] ?? 'unknown conditions';
-  const pm25Quality = describePM25(air.pm2_5);
-
-  let content = `## ${cityName} Environmental Report — ${timeStr}\n\n`;
-
-  content += `### Air\n`;
-  content += `PM2.5: ${air.pm2_5} ug/m3 (${pm25Quality}) | PM10: ${air.pm10} ug/m3\n`;
-  content += `O3: ${air.ozone} ug/m3 | NO2: ${air.no2} ug/m3 | SO2: ${air.so2} ug/m3 | CO: ${air.co} ug/m3\n\n`;
-
-  content += `### Weather\n`;
-  content += `${weather.temperature_c}C, ${weatherDesc}, ${weather.cloud_cover_pct}% clouds\n`;
-  content += `Wind: ${weather.wind_speed_kmh} km/h from ${windDirection(weather.wind_direction_deg)} | `;
-  content += `Humidity: ${weather.humidity_pct}% | Pressure: ${weather.pressure_hpa} hPa\n\n`;
-
-  if (river) {
-    content += `### River\n`;
-    content += `Discharge: ${river.discharge_m3s.toFixed(0)} m3/s\n\n`;
-  }
-
-  if (history.length > 0) {
-    const prev = history[0];
-    content += `### Trends\n`;
-    content += `PM2.5: ${trendDescription(air.pm2_5, prev.air.pm2_5)} | `;
-    content += `Temperature: ${trendDescription(weather.temperature_c, prev.weather.temperature_c)}`;
-    if (river && prev.river) {
-      content += ` | River: ${trendDescription(river.discharge_m3s, prev.river.discharge_m3s)}`;
-    }
-    content += `\n`;
-  }
-
-  const title = `${cityName} Breath — ${ts.toISOString().slice(0, 10)}`;
-
-  const tags = [
-    cityId,
-    'air-quality',
-    'environment',
-    `aqi-${pm25Quality}`,
-  ];
-
-  return { title, content, tags };
+  return formatDailySummary([{ name: cityName, data }]);
 }

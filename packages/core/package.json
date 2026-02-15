@@ -11,11 +11,13 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "typecheck": "tsc -b --emitDeclarationOnly",
-    "test": "vitest run"
+    "test": "vitest run",
+    "daily-summary": "node --import tsx src/daily-summary.ts"
   },
   "devDependencies": {
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "@types/node": "catalog:"
+    "@types/node": "catalog:",
+    "tsx": "catalog:"
   }
 }

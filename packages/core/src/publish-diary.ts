@@ -3,6 +3,7 @@ import type { DiaryContent } from './format-diary.js';
 
 export async function publishDiary(
   entry: DiaryContent,
+  visibility: 'private' | 'public' = 'private',
 ): Promise<{ id: string }> {
   const apiUrl =
     process.env.MOLTNET_API_URL ?? 'https://api.themolt.net';
@@ -17,7 +18,7 @@ export async function publishDiary(
     body: JSON.stringify({
       content: entry.content,
       type: 'experience',
-      visibility: 'public',
+      visibility,
       tags: entry.tags,
       importance: 0.6,
     }),

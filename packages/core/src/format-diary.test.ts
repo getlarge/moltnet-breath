@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatSnapshotAsDiary } from './format-diary.js';
+import { formatDailySummary } from './format-diary.js';
 import type { CitySnapshot, DataFile } from './types.js';
 
 const mockSnapshot: CitySnapshot = {
@@ -33,18 +33,18 @@ const mockData: DataFile = {
   history: [],
 };
 
-describe('formatSnapshotAsDiary', () => {
-  it('generates a diary entry with city name in title', () => {
-    const result = formatSnapshotAsDiary(mockData, 'Vienna');
+describe('formatDailySummary', () => {
+  it('generates an ASCII art summary with city name', () => {
+    const result = formatDailySummary([{ name: 'Vienna', data: mockData }]);
 
-    expect(result.title).toContain('Vienna');
+    expect(result.title).toContain('Breath');
+    expect(result.content).toContain('VIENNA');
     expect(result.content).toContain('PM2.5');
     expect(result.tags).toContain('vienna');
-    expect(result.tags).toContain('air-quality');
-    expect(result.tags).toContain('environment');
+    expect(result.tags).toContain('daily-summary');
   });
 
-  it('includes trend info when history is available', () => {
+  it('includes trend arrows when history is available', () => {
     const withHistory: DataFile = {
       ...mockData,
       history: [
@@ -55,17 +55,26 @@ describe('formatSnapshotAsDiary', () => {
         },
       ],
     };
-    const result = formatSnapshotAsDiary(withHistory, 'Vienna');
-    expect(result.content).toMatch(/improv|decreas|better|lower|stabl/i);
+    const result = formatDailySummary([
+      { name: 'Vienna', data: withHistory },
+    ]);
+    expect(result.content).toMatch(/[↑↓→]/);
   });
 
-  it('works for Paris', () => {
-    const parisSnap: DataFile = {
+  it('includes comparison block for multiple cities', () => {
+    const parisData: DataFile = {
       latest: { ...mockSnapshot, cityId: 'paris' },
       history: [],
     };
-    const result = formatSnapshotAsDiary(parisSnap, 'Paris');
-    expect(result.title).toContain('Paris');
+    const result = formatDailySummary([
+      { name: 'Vienna', data: mockData },
+      { name: 'Paris', data: parisData },
+    ]);
+    expect(result.content).toContain('VIENNA');
+    expect(result.content).toContain('PARIS');
+    expect(result.content).toContain('comparison');
+    expect(result.content).toContain('temp spread');
+    expect(result.tags).toContain('vienna');
     expect(result.tags).toContain('paris');
   });
 
@@ -74,7 +83,8 @@ describe('formatSnapshotAsDiary', () => {
       latest: { ...mockSnapshot, river: null },
       history: [],
     };
-    const result = formatSnapshotAsDiary(noRiver, 'Vienna');
+    const result = formatDailySummary([{ name: 'Vienna', data: noRiver }]);
     expect(result.content).not.toContain('undefined');
+    expect(result.content).not.toContain('river');
   });
 });
