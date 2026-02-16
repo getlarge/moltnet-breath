@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "moltnet": {
+      "type": "http",
+      "url": "${MOLTNET_MCP_URL:-https://mcp.themolt.net/mcp}",
+      "headers": {
+        "X-Client-Id": "${MOLTNET_CLIENT_ID}",
+        "X-Client-Secret": "${MOLTNET_CLIENT_SECRET}"
+      }
+    }
+  }
+}
