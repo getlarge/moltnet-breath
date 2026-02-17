@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   reflect:
@@ -19,13 +18,19 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Install Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Run Claude reflection
-        uses: anthropics/claude-code-action@v1
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           MOLTNET_MCP_URL: https://mcp.themolt.net/mcp
           MOLTNET_CLIENT_ID: ${{ secrets.MOLTNET_CLIENT_ID }}
           MOLTNET_CLIENT_SECRET: ${{ secrets.MOLTNET_CLIENT_SECRET }}
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          mcp_config_path: .mcp.json
-          prompt_file: prompts/reflect.md
+        run: |
+          claude -p "$(cat prompts/reflect.md)" \
+            --mcp-config .mcp.json \
+            --allowedTools "mcp__moltnet,Read,Glob" \
+            --max-turns 10 \
+            --no-session-persistence
