@@ -1,7 +1,7 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-03-07T10:05:47.107Z",
+    "timestamp": "2026-03-07T10:40:33.805Z",
     "air": {
       "source": "open-meteo",
       "pm10": 59.2,
@@ -13,13 +13,13 @@
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 12.6,
-      "humidity_pct": 77,
-      "wind_speed_kmh": 7,
-      "wind_direction_deg": 12,
+      "temperature_c": 13.5,
+      "humidity_pct": 75,
+      "wind_speed_kmh": 6.3,
+      "wind_direction_deg": 13,
       "pressure_hpa": 1018.2,
-      "cloud_cover_pct": 55,
-      "weather_code": 2
+      "cloud_cover_pct": 100,
+      "weather_code": 3
     },
     "river": {
       "source": "open-meteo-flood",
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-03-07T10:05:47.107Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 59.2,
+        "pm2_5": 32.5,
+        "ozone": 24,
+        "no2": 32.6,
+        "so2": 4.8,
+        "co": 473
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 12.6,
+        "humidity_pct": 77,
+        "wind_speed_kmh": 7,
+        "wind_direction_deg": 12,
+        "pressure_hpa": 1018.2,
+        "cloud_cover_pct": 55,
+        "weather_code": 2
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.16
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-03-07T09:41:26.028Z",
@@ -1332,34 +1360,6 @@
         "wind_speed_kmh": 3.1,
         "wind_direction_deg": 135,
         "pressure_hpa": 1013,
-        "cloud_cover_pct": 100,
-        "weather_code": 3
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.16
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-03-06T05:46:44.289Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 42.6,
-        "pm2_5": 25.9,
-        "ozone": 7,
-        "no2": 33.3,
-        "so2": 4.4,
-        "co": 269
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 10,
-        "humidity_pct": 85,
-        "wind_speed_kmh": 3.3,
-        "wind_direction_deg": 139,
-        "pressure_hpa": 1012.9,
         "cloud_cover_pct": 100,
         "weather_code": 3
       },
