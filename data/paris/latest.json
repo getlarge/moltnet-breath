@@ -1,7 +1,7 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-03-10T06:16:53.862Z",
+    "timestamp": "2026-03-10T06:46:59.607Z",
     "air": {
       "source": "open-meteo",
       "pm10": 20.2,
@@ -13,11 +13,11 @@
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 11,
-      "humidity_pct": 88,
-      "wind_speed_kmh": 3.3,
-      "wind_direction_deg": 186,
-      "pressure_hpa": 1011.7,
+      "temperature_c": 11.1,
+      "humidity_pct": 85,
+      "wind_speed_kmh": 4.3,
+      "wind_direction_deg": 204,
+      "pressure_hpa": 1011.9,
       "cloud_cover_pct": 100,
       "weather_code": 61
     },
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-03-10T06:16:53.862Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 20.2,
+        "pm2_5": 17.5,
+        "ozone": 7,
+        "no2": 41.1,
+        "so2": 4,
+        "co": 278
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 11,
+        "humidity_pct": 88,
+        "wind_speed_kmh": 3.3,
+        "wind_direction_deg": 186,
+        "pressure_hpa": 1011.7,
+        "cloud_cover_pct": 100,
+        "weather_code": 61
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.12
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-03-10T05:46:36.006Z",
@@ -1336,34 +1364,6 @@
         "wind_direction_deg": 111,
         "pressure_hpa": 1015.2,
         "cloud_cover_pct": 32,
-        "weather_code": 1
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.12
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-03-09T00:55:30.468Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 43.6,
-        "pm2_5": 32.6,
-        "ozone": 10,
-        "no2": 46.4,
-        "so2": 4,
-        "co": 405
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 11.3,
-        "humidity_pct": 89,
-        "wind_speed_kmh": 2.3,
-        "wind_direction_deg": 108,
-        "pressure_hpa": 1015.2,
-        "cloud_cover_pct": 38,
         "weather_code": 1
       },
       "river": {
