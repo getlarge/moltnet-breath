@@ -1,7 +1,7 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-07-15T19:28:56.871Z",
+    "timestamp": "2026-07-15T19:56:04.535Z",
     "air": {
       "source": "open-meteo",
       "pm10": 9.8,
@@ -13,11 +13,11 @@
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 29.2,
-      "humidity_pct": 39,
-      "wind_speed_kmh": 10.4,
+      "temperature_c": 29,
+      "humidity_pct": 36,
+      "wind_speed_kmh": 10.7,
       "wind_direction_deg": 14,
-      "pressure_hpa": 1011.4,
+      "pressure_hpa": 1011.8,
       "cloud_cover_pct": 100,
       "weather_code": 3
     },
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-07-15T19:28:56.871Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 9.8,
+        "pm2_5": 6.9,
+        "ozone": 105,
+        "no2": 11.9,
+        "so2": 1.2,
+        "co": 163
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 29.2,
+        "humidity_pct": 39,
+        "wind_speed_kmh": 10.4,
+        "wind_direction_deg": 14,
+        "pressure_hpa": 1011.4,
+        "cloud_cover_pct": 100,
+        "weather_code": 3
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.28
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-07-15T18:31:41.816Z",
@@ -1335,34 +1363,6 @@
         "wind_speed_kmh": 10.9,
         "wind_direction_deg": 9,
         "pressure_hpa": 1010.3,
-        "cloud_cover_pct": 100,
-        "weather_code": 3
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.28
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-07-14T05:24:26.064Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 18.1,
-        "pm2_5": 9.8,
-        "ozone": 63,
-        "no2": 19.7,
-        "so2": 1.8,
-        "co": 170
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 21,
-        "humidity_pct": 72,
-        "wind_speed_kmh": 10.8,
-        "wind_direction_deg": 360,
-        "pressure_hpa": 1010.4,
         "cloud_cover_pct": 100,
         "weather_code": 3
       },
