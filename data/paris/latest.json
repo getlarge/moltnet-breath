@@ -1,24 +1,24 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-07-16T07:42:34.908Z",
+    "timestamp": "2026-07-16T08:48:10.593Z",
     "air": {
       "source": "open-meteo",
-      "pm10": 14.5,
-      "pm2_5": 9.8,
-      "ozone": 54,
-      "no2": 34.2,
-      "so2": 2.3,
-      "co": 291
+      "pm10": 14.2,
+      "pm2_5": 9,
+      "ozone": 66,
+      "no2": 24.1,
+      "so2": 2,
+      "co": 276
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 23,
-      "humidity_pct": 50,
-      "wind_speed_kmh": 7.2,
-      "wind_direction_deg": 360,
-      "pressure_hpa": 1011.8,
-      "cloud_cover_pct": 74,
+      "temperature_c": 25.1,
+      "humidity_pct": 46,
+      "wind_speed_kmh": 6.9,
+      "wind_direction_deg": 9,
+      "pressure_hpa": 1011.7,
+      "cloud_cover_pct": 100,
       "weather_code": 3
     },
     "river": {
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-07-16T07:42:34.908Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 14.5,
+        "pm2_5": 9.8,
+        "ozone": 54,
+        "no2": 34.2,
+        "so2": 2.3,
+        "co": 291
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 23,
+        "humidity_pct": 50,
+        "wind_speed_kmh": 7.2,
+        "wind_direction_deg": 360,
+        "pressure_hpa": 1011.8,
+        "cloud_cover_pct": 74,
+        "weather_code": 3
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.28
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-07-16T06:51:15.529Z",
@@ -1336,34 +1364,6 @@
         "wind_direction_deg": 18,
         "pressure_hpa": 1009.6,
         "cloud_cover_pct": 100,
-        "weather_code": 3
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.28
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-07-14T18:25:25.224Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 14.3,
-        "pm2_5": 8,
-        "ozone": 114,
-        "no2": 12.7,
-        "so2": 1.2,
-        "co": 161
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 32.8,
-        "humidity_pct": 32,
-        "wind_speed_kmh": 12.5,
-        "wind_direction_deg": 18,
-        "pressure_hpa": 1009.6,
-        "cloud_cover_pct": 99,
         "weather_code": 3
       },
       "river": {
