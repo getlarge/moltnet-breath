@@ -1,23 +1,23 @@
 {
   "latest": {
     "cityId": "vienna",
-    "timestamp": "2026-07-31T09:27:57.453Z",
+    "timestamp": "2026-07-31T10:22:53.524Z",
     "air": {
       "source": "open-meteo",
-      "pm10": 17.5,
-      "pm2_5": 15.7,
-      "ozone": 125,
-      "no2": 7.2,
-      "so2": 3.6,
-      "co": 195
+      "pm10": 15.3,
+      "pm2_5": 14,
+      "ozone": 144,
+      "no2": 4.9,
+      "so2": 2.5,
+      "co": 186
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 32.4,
-      "humidity_pct": 34,
-      "wind_speed_kmh": 3.4,
-      "wind_direction_deg": 162,
-      "pressure_hpa": 995.4,
+      "temperature_c": 34.2,
+      "humidity_pct": 30,
+      "wind_speed_kmh": 4.1,
+      "wind_direction_deg": 128,
+      "pressure_hpa": 995,
       "cloud_cover_pct": 0,
       "weather_code": 0
     },
@@ -32,83 +32,83 @@
       "stations": [
         {
           "name": "Stephansplatz",
-          "no2_hmw": 19,
-          "o3_1mw": 137,
-          "so2_hmw": 6
+          "no2_hmw": 9,
+          "o3_1mw": 155,
+          "so2_hmw": 7
         },
         {
           "name": "Taborstraße",
-          "no2_hmw": 29,
+          "no2_hmw": 31,
           "pm10_mw24": 18,
           "pm2_5_mw24": 7,
           "co_mw8": 0.3
         },
         {
           "name": "AKH",
-          "no2_hmw": 20,
+          "no2_hmw": 13,
           "pm10_mw24": 17,
           "pm2_5_mw24": 8
         },
         {
           "name": "Belgradplatz",
-          "no2_hmw": 20,
+          "no2_hmw": 15,
           "pm10_mw24": 19,
           "pm2_5_mw24": 7
         },
         {
           "name": "Kaiser-Ebersdorf",
           "no2_hmw": 23,
-          "pm10_mw24": 25,
+          "pm10_mw24": 24,
           "pm2_5_mw24": 8,
           "so2_hmw": 2
         },
         {
           "name": "A23-Wehlistraße",
-          "no2_hmw": 19,
+          "no2_hmw": 22,
           "pm10_mw24": 21,
           "pm2_5_mw24": 8,
           "co_mw8": 0.3
         },
         {
           "name": "Gaudenzdorf",
-          "no2_hmw": 13,
+          "no2_hmw": 10,
           "pm10_mw24": 19,
           "pm2_5_mw24": 8
         },
         {
           "name": "Hietzinger Kai",
-          "no2_hmw": 57,
-          "co_mw8": 0.2
+          "no2_hmw": 42,
+          "co_mw8": 0.3
         },
         {
           "name": "Kendlerstraße",
-          "no2_hmw": 18,
+          "no2_hmw": 12,
           "pm10_mw24": 22,
-          "pm2_5_mw24": 8
+          "pm2_5_mw24": 9
         },
         {
           "name": "Schafberg",
-          "no2_hmw": 9,
-          "o3_1mw": 138,
+          "no2_hmw": 11,
+          "o3_1mw": 161,
           "pm10_mw24": 20,
           "pm2_5_mw24": 8
         },
         {
           "name": "Hohe Warte",
-          "no2_hmw": 16,
-          "o3_1mw": 143,
-          "so2_hmw": 5
+          "no2_hmw": 14,
+          "o3_1mw": 180,
+          "so2_hmw": 6
         },
         {
           "name": "Gerichtsgasse",
-          "no2_hmw": 15,
+          "no2_hmw": 16,
           "pm10_mw24": 20,
           "pm2_5_mw24": 7
         },
         {
           "name": "Lobau",
-          "no2_hmw": 13,
-          "o3_1mw": 160,
+          "no2_hmw": 11,
+          "o3_1mw": 180,
           "pm10_mw24": 15,
           "pm2_5_mw24": 7
         },
@@ -117,12 +117,12 @@
           "no2_hmw": 14,
           "pm10_mw24": 19,
           "pm2_5_mw24": 8,
-          "so2_hmw": 6
+          "so2_hmw": 8
         },
         {
           "name": "Liesing",
-          "no2_hmw": 14,
-          "o3_1mw": 138,
+          "no2_hmw": 12,
+          "o3_1mw": 145,
           "pm10_mw24": 20,
           "pm2_5_mw24": 9
         }
@@ -130,6 +130,136 @@
     }
   },
   "history": [
+    {
+      "cityId": "vienna",
+      "timestamp": "2026-07-31T09:27:57.453Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 17.5,
+        "pm2_5": 15.7,
+        "ozone": 125,
+        "no2": 7.2,
+        "so2": 3.6,
+        "co": 195
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 32.4,
+        "humidity_pct": 34,
+        "wind_speed_kmh": 3.4,
+        "wind_direction_deg": 162,
+        "pressure_hpa": 995.4,
+        "cloud_cover_pct": 0,
+        "weather_code": 0
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 876
+      },
+      "local": {
+        "source": "wien.gv.at",
+        "luftguete_index": 4,
+        "index_label": "unbefriedigend",
+        "stations": [
+          {
+            "name": "Stephansplatz",
+            "no2_hmw": 19,
+            "o3_1mw": 137,
+            "so2_hmw": 6
+          },
+          {
+            "name": "Taborstraße",
+            "no2_hmw": 29,
+            "pm10_mw24": 18,
+            "pm2_5_mw24": 7,
+            "co_mw8": 0.3
+          },
+          {
+            "name": "AKH",
+            "no2_hmw": 20,
+            "pm10_mw24": 17,
+            "pm2_5_mw24": 8
+          },
+          {
+            "name": "Belgradplatz",
+            "no2_hmw": 20,
+            "pm10_mw24": 19,
+            "pm2_5_mw24": 7
+          },
+          {
+            "name": "Kaiser-Ebersdorf",
+            "no2_hmw": 23,
+            "pm10_mw24": 25,
+            "pm2_5_mw24": 8,
+            "so2_hmw": 2
+          },
+          {
+            "name": "A23-Wehlistraße",
+            "no2_hmw": 19,
+            "pm10_mw24": 21,
+            "pm2_5_mw24": 8,
+            "co_mw8": 0.3
+          },
+          {
+            "name": "Gaudenzdorf",
+            "no2_hmw": 13,
+            "pm10_mw24": 19,
+            "pm2_5_mw24": 8
+          },
+          {
+            "name": "Hietzinger Kai",
+            "no2_hmw": 57,
+            "co_mw8": 0.2
+          },
+          {
+            "name": "Kendlerstraße",
+            "no2_hmw": 18,
+            "pm10_mw24": 22,
+            "pm2_5_mw24": 8
+          },
+          {
+            "name": "Schafberg",
+            "no2_hmw": 9,
+            "o3_1mw": 138,
+            "pm10_mw24": 20,
+            "pm2_5_mw24": 8
+          },
+          {
+            "name": "Hohe Warte",
+            "no2_hmw": 16,
+            "o3_1mw": 143,
+            "so2_hmw": 5
+          },
+          {
+            "name": "Gerichtsgasse",
+            "no2_hmw": 15,
+            "pm10_mw24": 20,
+            "pm2_5_mw24": 7
+          },
+          {
+            "name": "Lobau",
+            "no2_hmw": 13,
+            "o3_1mw": 160,
+            "pm10_mw24": 15,
+            "pm2_5_mw24": 7
+          },
+          {
+            "name": "Stadlau",
+            "no2_hmw": 14,
+            "pm10_mw24": 19,
+            "pm2_5_mw24": 8,
+            "so2_hmw": 6
+          },
+          {
+            "name": "Liesing",
+            "no2_hmw": 14,
+            "o3_1mw": 138,
+            "pm10_mw24": 20,
+            "pm2_5_mw24": 9
+          }
+        ]
+      }
+    },
     {
       "cityId": "vienna",
       "timestamp": "2026-07-31T08:22:59.853Z",
@@ -6203,135 +6333,6 @@
             "name": "Liesing",
             "no2_hmw": 5,
             "o3_1mw": 127,
-            "pm10_mw24": 18,
-            "pm2_5_mw24": 9
-          }
-        ]
-      }
-    },
-    {
-      "cityId": "vienna",
-      "timestamp": "2026-07-29T16:55:28.633Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 11.7,
-        "pm2_5": 10.3,
-        "ozone": 109,
-        "no2": 4.5,
-        "so2": 3.3,
-        "co": 167
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 33.1,
-        "humidity_pct": 32,
-        "wind_speed_kmh": 15.9,
-        "wind_direction_deg": 141,
-        "pressure_hpa": 996.4,
-        "cloud_cover_pct": 0,
-        "weather_code": 0
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 898.5
-      },
-      "local": {
-        "source": "wien.gv.at",
-        "luftguete_index": 3,
-        "index_label": "befriedigend",
-        "stations": [
-          {
-            "name": "Stephansplatz",
-            "no2_hmw": 5,
-            "o3_1mw": 127,
-            "so2_hmw": 6
-          },
-          {
-            "name": "Taborstraße",
-            "no2_hmw": 20,
-            "pm10_mw24": 16,
-            "pm2_5_mw24": 7,
-            "co_mw8": 0.3
-          },
-          {
-            "name": "AKH",
-            "no2_hmw": 6,
-            "pm10_mw24": 17,
-            "pm2_5_mw24": 7
-          },
-          {
-            "name": "Belgradplatz",
-            "no2_hmw": 16,
-            "pm10_mw24": 20,
-            "pm2_5_mw24": 7
-          },
-          {
-            "name": "Kaiser-Ebersdorf",
-            "no2_hmw": 11,
-            "pm10_mw24": 28,
-            "pm2_5_mw24": 8,
-            "so2_hmw": 2
-          },
-          {
-            "name": "A23-Wehlistraße",
-            "no2_hmw": 8,
-            "pm10_mw24": 19,
-            "pm2_5_mw24": 8,
-            "co_mw8": 0.2
-          },
-          {
-            "name": "Gaudenzdorf",
-            "no2_hmw": 12,
-            "pm10_mw24": 17,
-            "pm2_5_mw24": 7
-          },
-          {
-            "name": "Hietzinger Kai",
-            "no2_hmw": 37,
-            "co_mw8": 0.2
-          },
-          {
-            "name": "Kendlerstraße",
-            "no2_hmw": 8,
-            "pm10_mw24": 20,
-            "pm2_5_mw24": 8
-          },
-          {
-            "name": "Schafberg",
-            "no2_hmw": 5,
-            "pm10_mw24": 18,
-            "pm2_5_mw24": 8
-          },
-          {
-            "name": "Hohe Warte",
-            "no2_hmw": 9,
-            "o3_1mw": 124,
-            "so2_hmw": 6
-          },
-          {
-            "name": "Gerichtsgasse",
-            "no2_hmw": 9,
-            "pm10_mw24": 20,
-            "pm2_5_mw24": 7
-          },
-          {
-            "name": "Lobau",
-            "no2_hmw": 4,
-            "o3_1mw": 128,
-            "pm10_mw24": 13,
-            "pm2_5_mw24": 7
-          },
-          {
-            "name": "Stadlau",
-            "no2_hmw": 7,
-            "pm10_mw24": 18,
-            "pm2_5_mw24": 8,
-            "so2_hmw": 5
-          },
-          {
-            "name": "Liesing",
-            "no2_hmw": 9,
-            "o3_1mw": 122,
             "pm10_mw24": 18,
             "pm2_5_mw24": 9
           }
