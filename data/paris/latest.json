@@ -1,23 +1,23 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-09-25T15:36:32.244Z",
+    "timestamp": "2026-09-25T16:11:22.020Z",
     "air": {
       "source": "open-meteo",
-      "pm10": 9.4,
+      "pm10": 9.2,
       "pm2_5": 5.4,
-      "ozone": 100,
-      "no2": 11,
-      "so2": 1,
-      "co": 199
+      "ozone": 94,
+      "no2": 14.4,
+      "so2": 1.2,
+      "co": 205
     },
     "weather": {
       "source": "open-meteo",
       "temperature_c": 27.6,
-      "humidity_pct": 36,
-      "wind_speed_kmh": 7.4,
-      "wind_direction_deg": 129,
-      "pressure_hpa": 1012,
+      "humidity_pct": 35,
+      "wind_speed_kmh": 8.2,
+      "wind_direction_deg": 128,
+      "pressure_hpa": 1011.9,
       "cloud_cover_pct": 0,
       "weather_code": 0
     },
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-09-25T15:36:32.244Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 9.4,
+        "pm2_5": 5.4,
+        "ozone": 100,
+        "no2": 11,
+        "so2": 1,
+        "co": 199
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 27.6,
+        "humidity_pct": 36,
+        "wind_speed_kmh": 7.4,
+        "wind_direction_deg": 129,
+        "pressure_hpa": 1012,
+        "cloud_cover_pct": 0,
+        "weather_code": 0
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.23
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-09-25T15:10:48.546Z",
@@ -1332,34 +1360,6 @@
         "source": "open-meteo",
         "temperature_c": 23,
         "humidity_pct": 49,
-        "wind_speed_kmh": 5,
-        "wind_direction_deg": 30,
-        "pressure_hpa": 1017.6,
-        "cloud_cover_pct": 100,
-        "weather_code": 3
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.23
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-09-24T15:10:00.076Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 16,
-        "pm2_5": 10.9,
-        "ozone": 87,
-        "no2": 19.4,
-        "so2": 1.5,
-        "co": 251
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 23,
-        "humidity_pct": 51,
         "wind_speed_kmh": 5,
         "wind_direction_deg": 30,
         "pressure_hpa": 1017.6,
