@@ -1,24 +1,24 @@
 {
   "latest": {
     "cityId": "paris",
-    "timestamp": "2026-10-10T09:39:13.487Z",
+    "timestamp": "2026-10-10T10:09:05.840Z",
     "air": {
       "source": "open-meteo",
-      "pm10": 11,
-      "pm2_5": 4.3,
-      "ozone": 51,
-      "no2": 10.5,
-      "so2": 1.1,
-      "co": 190
+      "pm10": 10.6,
+      "pm2_5": 4.2,
+      "ozone": 56,
+      "no2": 7.2,
+      "so2": 0.8,
+      "co": 180
     },
     "weather": {
       "source": "open-meteo",
-      "temperature_c": 14.2,
-      "humidity_pct": 75,
+      "temperature_c": 15,
+      "humidity_pct": 71,
       "wind_speed_kmh": 8.7,
-      "wind_direction_deg": 265,
+      "wind_direction_deg": 263,
       "pressure_hpa": 1011.1,
-      "cloud_cover_pct": 41,
+      "cloud_cover_pct": 0,
       "weather_code": 1
     },
     "river": {
@@ -28,6 +28,34 @@
     "local": null
   },
   "history": [
+    {
+      "cityId": "paris",
+      "timestamp": "2026-10-10T09:39:13.487Z",
+      "air": {
+        "source": "open-meteo",
+        "pm10": 11,
+        "pm2_5": 4.3,
+        "ozone": 51,
+        "no2": 10.5,
+        "so2": 1.1,
+        "co": 190
+      },
+      "weather": {
+        "source": "open-meteo",
+        "temperature_c": 14.2,
+        "humidity_pct": 75,
+        "wind_speed_kmh": 8.7,
+        "wind_direction_deg": 265,
+        "pressure_hpa": 1011.1,
+        "cloud_cover_pct": 41,
+        "weather_code": 1
+      },
+      "river": {
+        "source": "open-meteo-flood",
+        "discharge_m3s": 1.4
+      },
+      "local": null
+    },
     {
       "cityId": "paris",
       "timestamp": "2026-10-10T09:10:13.805Z",
@@ -1335,34 +1363,6 @@
         "wind_speed_kmh": 11.7,
         "wind_direction_deg": 214,
         "pressure_hpa": 1014.1,
-        "cloud_cover_pct": 100,
-        "weather_code": 3
-      },
-      "river": {
-        "source": "open-meteo-flood",
-        "discharge_m3s": 1.38
-      },
-      "local": null
-    },
-    {
-      "cityId": "paris",
-      "timestamp": "2026-10-09T09:14:17.842Z",
-      "air": {
-        "source": "open-meteo",
-        "pm10": 12.3,
-        "pm2_5": 6.7,
-        "ozone": 37,
-        "no2": 24.3,
-        "so2": 1.6,
-        "co": 216
-      },
-      "weather": {
-        "source": "open-meteo",
-        "temperature_c": 11.8,
-        "humidity_pct": 72,
-        "wind_speed_kmh": 11.7,
-        "wind_direction_deg": 214,
-        "pressure_hpa": 1014.2,
         "cloud_cover_pct": 100,
         "weather_code": 3
       },
